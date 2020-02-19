@@ -1,10 +1,14 @@
 {
   "name": "fp-helpers-nba",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "helpers for use across client and server fp projects",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
+  "jsnext:main": "lib-esm/index.js",
+  "module": "lib-esm/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npm run clean && tsc && tsc -m es6 --outDir lib-esm",
+    "clean": "shx rm -rf _bundles lib lib-esm build"
   },
   "repository": {
     "type": "git",
@@ -14,7 +18,9 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^13.7.2",
+    "shx": "^0.3.2",
     "tslint": "^6.0.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.6"
   }
 }

@@ -1,1 +1,12 @@
-node_modules
+**/.*
+tslint.json
+*.ipr
+*.iml
+*.iws
+lib/
+lib-esm/
+_bundles/
+node_modules/
+_doc
+yarn-error.log
+!.github

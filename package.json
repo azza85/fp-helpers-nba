@@ -1,13 +1,17 @@
 {
   "name": "fp-helpers-nba",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "helpers for use across client and server fp projects",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azza85/fp-helpers-nba.git"
+  },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^13.7.2",
     "tslint": "^6.0.0",

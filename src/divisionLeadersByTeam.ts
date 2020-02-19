@@ -1,5 +1,5 @@
 import { isWinningDivision } from "./isWinningDivision";
-import { StandingsByDivConf } from "./StandingsByDivConf";
+import { standingsByDivConf } from "./standingsByDivConf";
 export const divisionLeadersByTeam = (teams, teamsByID, teamsBy, standings) => {
   return teams.reduce((obj, team) => {
     const teamID = team.teamId;
@@ -8,7 +8,7 @@ export const divisionLeadersByTeam = (teams, teamsByID, teamsBy, standings) => {
       ...obj,
       [teamID]: isWinningDivision(
         teamID,
-        StandingsByDivConf({
+        standingsByDivConf({
           standings,
           teamsBy,
           name: teamDivision

@@ -1,6 +1,6 @@
 {
   "name": "fp-helpers-nba",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "helpers for use across client and server fp projects",
   "main": "lib/index.js",
   "jsnext:main": "lib-esm/index.js",

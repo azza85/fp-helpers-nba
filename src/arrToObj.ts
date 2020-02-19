@@ -1,7 +1,7 @@
-export const arrToObj = (array, key: string) =>
-  array.reduce((obj, item) => {
+export const arrToObj = (array: any, key: string, noArray: boolean = false) =>
+  array.reduce((obj: any, item: any) => {
     return {
       ...obj,
-      [item[key]]: [...(obj[item[key]] || []), item]
+      [item[key]]: noArray ? item : [...(obj[item[key]] || []), item]
     };
   }, {});

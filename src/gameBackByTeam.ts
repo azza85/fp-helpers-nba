@@ -5,14 +5,14 @@ export const gameBackByTeam = (teamsByID, standings) => {
   return standings.reduce((obj, team, index) => {
     const teamID = team.teamId;
     const gamesLeft = 82 - (team.wonTotal + team.lostTotal);
-    const teamDivision = teamsByID[teamID][0].divName;
+    const teamDivision = teamsByID[teamID].divName;
     const divisionStandings = standings.filter(
       dTeam => teamsByID[dTeam.teamId][0].divName === teamDivision
     );
     const divisionIndex = calcPositionInStandings(divisionStandings, teamID);
-    const teamConference = teamsByID[teamID][0].confName;
+    const teamConference = teamsByID[teamID].confName;
     const conferenceStandings = standings.filter(
-      dTeam => teamsByID[dTeam.teamId][0].confName === teamConference
+      dTeam => teamsByID[dTeam.teamId].confName === teamConference
     );
     const conferenceIndex = calcPositionInStandings(
       conferenceStandings,

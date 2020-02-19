@@ -3,7 +3,7 @@ import { standingsByDivConf } from "./standingsByDivConf";
 export const divisionLeadersByTeam = (teams, teamsByID, teamsBy, standings) => {
   return teams.reduce((obj, team) => {
     const teamID = team.teamId;
-    const teamDivision = teamsByID[teamID][0].divName;
+    const teamDivision = teamsByID[teamID].divName;
     return {
       ...obj,
       [teamID]: isWinningDivision(

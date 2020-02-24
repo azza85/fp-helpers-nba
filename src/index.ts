@@ -12,6 +12,7 @@ export { gamesBack } from "./gamesBack";
 export { getOpponent } from "./getOpponent";
 export { headToHead } from "./headToHead";
 export { homeMatches } from "./homeMatches";
+export { isHomeID } from "./isHomeID";
 export { isWinningDivision } from "./isWinningDivision";
 export { matchAwayID } from "./matchAwayID";
 export { matchConferenceName } from "./matchConferenceName";

@@ -9,6 +9,7 @@ export { divisionLeadersByTeam } from "./divisionLeadersByTeam";
 export { divisionMatches } from "./divisionMatches";
 export { gameBackByTeam } from "./gameBackByTeam";
 export { gamesBack } from "./gamesBack";
+export { getOpponent } from "./getOpponent";
 export { headToHead } from "./headToHead";
 export { homeMatches } from "./homeMatches";
 export { isWinningDivision } from "./isWinningDivision";

@@ -7,7 +7,7 @@ export const gameBackByTeam = (teamsByID, standings) => {
     const gamesLeft = 82 - (team.wonTotal + team.lostTotal);
     const teamDivision = teamsByID[teamID].divName;
     const divisionStandings = standings.filter(
-      dTeam => teamsByID[dTeam.teamId][0].divName === teamDivision
+      dTeam => teamsByID[dTeam.teamId].divName === teamDivision
     );
     const divisionIndex = calcPositionInStandings(divisionStandings, teamID);
     const teamConference = teamsByID[teamID].confName;

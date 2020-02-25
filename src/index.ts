@@ -1,6 +1,7 @@
 export { arrToObj } from "./arrToObj";
 export { awayMatches } from "./awayMatches";
 export { calcPointsFor } from "./calcPointsFor";
+export { calcPointsAgainst } from "./calcPointsAgainst";
 export { calcPositionInStandings } from "./calcPositionInStandings";
 export { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 export { completedMatches } from "./completedMatches";

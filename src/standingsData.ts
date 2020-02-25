@@ -1,5 +1,6 @@
 import { record } from "./record";
 import { calcPointsFor } from "./calcPointsFor";
+import { calcPointsAgainst } from "./calcPointsAgainst";
 import { notConferenceMatches } from "./notConferenceMatches";
 import { conferenceMatches } from "./conferenceMatches";
 import { divisionMatches } from "./divisionMatches";
@@ -56,7 +57,10 @@ export const standingsData = (teams, matches, teamsByID, gamesBackByTeam) => {
           teamMatches(homeMatchesList, teamID),
           teamMatches(awayMatchesList, teamID)
         ),
-        pointAgainst: 0,
+        pointAgainst: calcPointsAgainst(
+          teamMatches(homeMatchesList, teamID),
+          teamMatches(awayMatchesList, teamID)
+        ),
         ...record(teamMatches(getCompletedMatches, teamID), teamID, "Total"),
         ...record(teamMatches(homeMatchesList, teamID), teamID, "Home"),
         ...record(teamMatches(awayMatchesList, teamID), teamID, "Away"),

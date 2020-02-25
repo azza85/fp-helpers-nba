@@ -2,27 +2,25 @@ import { winPercentageAsNum } from "./winPercentageAsNum";
 import { sortedTeamsID } from "./sortedTeamsID";
 export const sortPointsTable = (
   standings: any,
-  teamsByID: object,
-  divisionLeader: object,
-  h2hData: object
+  teamsByID: any,
+  divisionLeader: any,
+  h2hData: any
 ) => {
   return standings.sort((a: any, b: any) => {
     const aTeamID = a.teamId;
     const bTeamID = b.teamId;
     const getSortedTeamID = sortedTeamsID(aTeamID, bTeamID);
     const getHeadToHead = h2hData[getSortedTeamID];
-    const aH2h =
+    const aH2hWinPercent =
       getHeadToHead !== undefined
         ? Object.values(getHeadToHead).filter(id => id === aTeamID).length
         : 0;
-    const bH2h =
+    const bH2hWinPercent =
       getHeadToHead !== undefined
         ? Object.values(getHeadToHead).filter(id => id === bTeamID).length
         : 0;
     const aWinPercent = winPercentageAsNum(a.winPercentageTotal);
     const bWinPercent = winPercentageAsNum(b.winPercentageTotal);
-    const aH2hWinPercent = winPercentageAsNum(a.winPercentageTotal);
-    const bH2hWinPercent = winPercentageAsNum(b.winPercentageTotal);
 
     const aConfWinPercent = winPercentageAsNum(a.winPercentageConference);
     const aConfWinPercentEligible = winPercentageAsNum(
@@ -142,12 +140,12 @@ export const sortPointsTable = (
       /*
       1 h2h win percentage
       */
-      return bH2h - aH2h;
+      return bH2hWinPercent - aH2hWinPercent;
     } else {
       /*
       0 better win percent
       */
-      return bH2hWinPercent - aH2hWinPercent;
+      return bWinPercent - aWinPercent;
     }
   });
 };

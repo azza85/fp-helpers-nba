@@ -11,6 +11,9 @@ export const headToHead = matches =>
     );
     return {
       ...obj,
-      [getSortedTeamID]: [...(obj[getSortedTeamID] || []), matchWinnerID(match)]
+      [getSortedTeamID]: {
+        ...obj[getSortedTeamID],
+        [match.gameId]: matchWinnerID(match)
+      }
     };
   }, {});

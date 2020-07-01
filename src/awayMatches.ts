@@ -1,3 +1,4 @@
 import { matchAwayID } from "./matchAwayID";
-export const awayMatches = (matches, teamID) =>
-  matches.filter(match => matchAwayID(match) === teamID);
+import { IMatches } from "./types";
+export const awayMatches = (matches: IMatches[], teamID: string): IMatches[] =>
+  matches.filter((match) => matchAwayID(match) === teamID);

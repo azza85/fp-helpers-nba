@@ -1,3 +1,4 @@
+import { IMatches, ITeams, ITeamsByID, IGamesBackByTeam } from "./types/index";
 import { record } from "./record";
 import { calcPointsFor } from "./calcPointsFor";
 import { calcPointsAgainst } from "./calcPointsAgainst";
@@ -10,15 +11,20 @@ import { completedMatches } from "./completedMatches";
 import { teamMatches } from "./teamMatches";
 import { teamsInPlayoffs } from "./teamsInPlayoffs";
 
-export const standingsData = (teams, matches, teamsByID, gamesBackByTeam) => {
+export const standingsData = (
+  teams: ITeams[],
+  matches: IMatches[],
+  teamsByID: ITeamsByID,
+  gamesBackByTeam: IGamesBackByTeam
+) => {
   const getTeamsInPlayoffs = teamsInPlayoffs(gamesBackByTeam);
   const getCompletedMatches = completedMatches(matches);
   return teams.reduce((obj, team) => {
     const teamID = team.teamId;
     const homeMatchesList = homeMatches(getCompletedMatches, teamID);
     const awayMatchesList = awayMatches(getCompletedMatches, teamID);
-    const teamDivision = teamsByID[teamID].divName;
-    //const teamConference = teamsByID[teamID].confName
+    // const teamDivision = teamsByID[teamID].divName;
+    // const teamConference = teamsByID[teamID].confName
     const divisionMatchesList = divisionMatches(
       teamMatches(getCompletedMatches, teamID),
       teamsByID
@@ -35,7 +41,7 @@ export const standingsData = (teams, matches, teamsByID, gamesBackByTeam) => {
       conferenceMatchesList,
       teamID
     ).filter(
-      match =>
+      (match) =>
         getTeamsInPlayoffs.includes(match.hTeam.teamId) ||
         getTeamsInPlayoffs.includes(match.vTeam.teamId)
     );
@@ -43,7 +49,7 @@ export const standingsData = (teams, matches, teamsByID, gamesBackByTeam) => {
       notConferenceMatchesList,
       teamID
     ).filter(
-      match =>
+      (match) =>
         getTeamsInPlayoffs.includes(match.hTeam.teamId) ||
         getTeamsInPlayoffs.includes(match.vTeam.teamId)
     );

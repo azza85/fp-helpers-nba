@@ -1,1 +1,2 @@
-export const matchAwayID = match => match.vTeam.teamId;
+import { IMatches } from "./types";
+export const matchAwayID = (match: IMatches) => match.vTeam.teamId;

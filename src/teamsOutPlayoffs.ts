@@ -1,4 +1,6 @@
-export const teamsOutPlayoffs = (gamesBackByTeam: any) =>
+import { IGamesBackByTeam } from "./types";
+
+export const teamsOutPlayoffs = (gamesBackByTeam: IGamesBackByTeam) =>
   Object.keys(gamesBackByTeam).filter(
-    teamID => gamesBackByTeam[teamID].canMakePlayoffs === false
+    (teamID) => gamesBackByTeam[teamID].canMakePlayoffs === false
   );

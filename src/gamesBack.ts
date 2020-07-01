@@ -1,4 +1,5 @@
-export const gamesBack = (team1, team2) => {
+import { IStandings } from "./types";
+export const gamesBack = (team1: IStandings, team2: IStandings) => {
   if (team1 !== undefined && team2 !== undefined) {
     const team1W = team1.wonTotal;
     const team1L = team1.lostTotal;

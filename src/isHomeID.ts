@@ -1,4 +1,4 @@
-export const isHomeID = (match: any, teamID: any) => {
-  const matchHomeID = (match: any) => match.hTeam.teamId;
-  return teamID === matchHomeID(match) ? true : false;
-};
+import { IMatches } from "./types";
+import { matchHomeID } from "./matchHomeID";
+export const isHomeID = (match: IMatches, teamID: string) =>
+  teamID === matchHomeID(match) ? true : false;

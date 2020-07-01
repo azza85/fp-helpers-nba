@@ -1,2 +1,2 @@
-export const winPercentageAsNum = percentage =>
+export const winPercentageAsNum = (percentage: string) =>
   Number(percentage.replace(".", ""));

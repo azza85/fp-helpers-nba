@@ -1,18 +1,22 @@
 import { calcPositionInStandings } from "./calcPositionInStandings";
 import { gamesBack } from "./gamesBack";
+import { ITeamsByID, IStandings } from "./types";
 
-export const gameBackByTeam = (teamsByID, standings) => {
+export const gameBackByTeam = (
+  teamsByID: ITeamsByID,
+  standings: IStandings[]
+) => {
   return standings.reduce((obj, team, index) => {
     const teamID = team.teamId;
     const gamesLeft = 82 - (team.wonTotal + team.lostTotal);
     const teamDivision = teamsByID[teamID].divName;
     const divisionStandings = standings.filter(
-      dTeam => teamsByID[dTeam.teamId].divName === teamDivision
+      (dTeam) => teamsByID[dTeam.teamId].divName === teamDivision
     );
     const divisionIndex = calcPositionInStandings(divisionStandings, teamID);
     const teamConference = teamsByID[teamID].confName;
     const conferenceStandings = standings.filter(
-      dTeam => teamsByID[dTeam.teamId].confName === teamConference
+      (dTeam) => teamsByID[dTeam.teamId].confName === teamConference
     );
     const conferenceIndex = calcPositionInStandings(
       conferenceStandings,

@@ -1,8 +1,13 @@
+import { IMatches, RecordTypes } from "./types";
 import { matchesWon } from "./matchesWon";
 import { matchesLost } from "./matchesLost";
 import { winPercentage } from "./winPercentage";
 
-export const record = (matches, teamID, type) => {
+export const record = (
+  matches: IMatches[],
+  teamID: string,
+  type: RecordTypes
+) => {
   const matchesList = matches;
   const matchesCount = matchesList.length;
   return {

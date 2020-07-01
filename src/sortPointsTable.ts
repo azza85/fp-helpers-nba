@@ -1,23 +1,29 @@
 import { winPercentageAsNum } from "./winPercentageAsNum";
 import { sortedTeamsID } from "./sortedTeamsID";
+import {
+  IDivisionLeader,
+  IHeadToHeadData,
+  IStandings,
+  ITeamsByID
+} from "./types";
 export const sortPointsTable = (
-  standings: any,
-  teamsByID: any,
-  divisionLeader: any,
-  h2hData: any
+  standings: IStandings[],
+  teamsByID: ITeamsByID,
+  divisionLeader: IDivisionLeader,
+  h2hData: IHeadToHeadData
 ) => {
-  return standings.sort((a: any, b: any) => {
+  return standings.sort((a, b) => {
     const aTeamID = a.teamId;
     const bTeamID = b.teamId;
-    const getSortedTeamID = sortedTeamsID(aTeamID, bTeamID);
+    const getSortedTeamID = sortedTeamsID(Number(aTeamID), Number(bTeamID));
     const getHeadToHead = h2hData[getSortedTeamID];
     const aH2hWinPercent =
       getHeadToHead !== undefined
-        ? Object.values(getHeadToHead).filter(id => id === aTeamID).length
+        ? Object.values(getHeadToHead).filter((id) => id === aTeamID).length
         : 0;
     const bH2hWinPercent =
       getHeadToHead !== undefined
-        ? Object.values(getHeadToHead).filter(id => id === bTeamID).length
+        ? Object.values(getHeadToHead).filter((id) => id === bTeamID).length
         : 0;
     const aWinPercent = winPercentageAsNum(a.winPercentageTotal);
     const bWinPercent = winPercentageAsNum(b.winPercentageTotal);

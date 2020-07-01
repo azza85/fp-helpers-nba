@@ -1,10 +1,11 @@
 import { matchWinnerID } from "./matchWinnerID";
 import { sortedTeamsID } from "./sortedTeamsID";
+import { IMatches } from "./types";
 
-export const headToHead = matches =>
+export const headToHead = (matches: IMatches[]) =>
   matches.reduce((obj, match) => {
-    const matchAwayID = match => match.vTeam.teamId;
-    const matchHomeID = match => match.hTeam.teamId;
+    const matchAwayID = (match) => Number(match.vTeam.teamId);
+    const matchHomeID = (match) => Number(match.hTeam.teamId);
     const getSortedTeamID = sortedTeamsID(
       matchAwayID(match),
       matchHomeID(match)
